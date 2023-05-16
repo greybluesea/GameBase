@@ -1,18 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import axiosClientForGenres, { Genre } from "../services/axiosClientForGenres";
-
-interface ResFetchGenres<Genre> {
-  count: number;
-  results: Genre[];
-}
+import { ResFromFetch } from "../services/AXIOSClient";
 
 const useFetchGenres = () => {
   const {
     data: resIncludingGenres,
     error,
     isLoading,
-  } = useQuery<ResFetchGenres<Genre>, AxiosError>({
+  } = useQuery<ResFromFetch<Genre>, AxiosError>({
     queryKey: ["genres"],
     queryFn: axiosClientForGenres.get,
     staleTime: 24 * 60 * 60 * 1000,

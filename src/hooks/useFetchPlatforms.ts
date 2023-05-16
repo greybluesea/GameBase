@@ -3,18 +3,14 @@ import { AxiosError } from "axios";
 import axiosClientForPlatforms, {
   Platform,
 } from "../services/axiosClientForPlatforms";
-
-interface ResFetchPlatforms<Platform> {
-  count: number;
-  results: Platform[];
-}
+import { ResFromFetch } from "../services/AXIOSClient";
 
 const useFetchPlatforms = () => {
   const {
     data: resIncludingPlatforms,
     error,
     isLoading,
-  } = useQuery<ResFetchPlatforms<Platform>, AxiosError>({
+  } = useQuery<ResFromFetch<Platform>, AxiosError>({
     queryKey: ["platforms"],
     queryFn: axiosClientForPlatforms.get,
     staleTime: 3 * 24 * 60 * 60 * 1000,

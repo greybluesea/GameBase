@@ -2,18 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { QueryGame } from "../App";
 import axiosClientForGames, { Game } from "../services/axiosClientForGames";
-
-interface ResFetchGames<Game> {
-  count: number;
-  results: Game[];
-}
+import { ResFromFetch } from "../services/AXIOSClient";
 
 const useFetchGames = (queryGame: QueryGame) => {
   const {
     data: resIncludingGames,
     error,
     isLoading,
-  } = useQuery<ResFetchGames<Game>, AxiosError>({
+  } = useQuery<ResFromFetch<Game>, AxiosError>({
     queryKey: ["/games", queryGame],
     queryFn: () =>
       axiosClientForGames.get({
