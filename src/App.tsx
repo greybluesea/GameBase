@@ -45,7 +45,17 @@ const App = () => {
         <Show above="lg">
           <GridItem area={"aside"}>
             <GenreList
-              onSelectGenre={(genre) => setQueryGame({ ...queryGame, genre })}
+              onSelectGenre={(genre) =>
+                setQueryGame({
+                  ...queryGame,
+                  genre: {
+                    id: genre.id,
+                    name: genre.name,
+                    image_background: genre.image_background,
+                    slug: genre.slug,
+                  },
+                })
+              }
               selectedGenre={queryGame.genre}
             />
           </GridItem>
@@ -55,7 +65,14 @@ const App = () => {
             <Box>
               <PlatformFilter
                 onSelectPlatform={(platform) =>
-                  setQueryGame({ ...queryGame, platform })
+                  setQueryGame({
+                    ...queryGame,
+                    platform: {
+                      id: platform.id,
+                      name: platform.name,
+                      slug: platform.slug,
+                    },
+                  })
                 }
                 selectedPlatform={queryGame.platform}
               />

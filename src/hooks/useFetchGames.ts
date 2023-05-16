@@ -13,7 +13,15 @@ const useFetchGames = (queryGame: QueryGame) => {
     isFetchingNextPage,
     hasNextPage,
   } = useInfiniteQuery<ResFromFetch<Game>, AxiosError>({
-    queryKey: ["/games", queryGame],
+    queryKey: [
+      "/games",
+      {
+        genres: queryGame?.genre?.name,
+        parent_platforms: queryGame?.platform?.name,
+        ordering: queryGame?.sort?.name,
+        search: queryGame?.search,
+      },
+    ],
     queryFn: ({ pageParam = 1 }) =>
       axiosClientForGames.get({
         params: {

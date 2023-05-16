@@ -32,7 +32,7 @@ const NavBar = ({ onSearch }: Props) => {
             <react.List>
               <react.ListItem>API provided by RAWG</react.ListItem>
               <react.ListItem>ReactQuery/TansQuery + Axios</react.ListItem>
-              <react.ListItem>Git</react.ListItem>
+              <react.ListItem>Git + Github</react.ListItem>
               <react.ListItem>deployed onto Vercel</react.ListItem>
               <react.ListItem>Chakra UI library</react.ListItem>
               <react.ListItem>Typescript + React 18 + Vite</react.ListItem>
