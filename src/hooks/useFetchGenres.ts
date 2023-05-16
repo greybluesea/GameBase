@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import axiosClientForGenres, { Genre } from "../services/axiosClientForGenres";
 import { ResFromFetch } from "../services/AXIOSClient";
+import initialGenres from "../data/initialGenres";
 
 const useFetchGenres = () => {
   const {
@@ -13,7 +14,7 @@ const useFetchGenres = () => {
     queryFn: axiosClientForGenres.get,
     staleTime: 24 * 60 * 60 * 1000,
     cacheTime: 24 * 60 * 60 * 1000,
-    /* initialData: { count: initialGenres.length, results: initialGenres }, */
+    initialData: { count: initialGenres.length, results: initialGenres },
     refetchOnMount: false,
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
