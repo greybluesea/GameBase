@@ -22,7 +22,7 @@ const useFetchGames = (queryGame: QueryGame) => {
           ordering: queryGame?.sort?.value,
           search: queryGame?.search,
           page: pageParam,
-          page_size: 12,
+          page_size: 8,
         },
       }),
     keepPreviousData: true,
@@ -30,6 +30,7 @@ const useFetchGames = (queryGame: QueryGame) => {
       /* return lastPage.results.length > 0 ? allPages.length + 1 : undefined; */
       return lastPage.next ? allPages.length + 1 : undefined;
     },
+    staleTime: 24 * 60 * 60 * 1000,
   });
 
   /* const useFetchGames = (queryGame: QueryGame) => {
