@@ -1,4 +1,4 @@
-import AXIOSClient from "./AXIOSClinet";
+import AXIOSClient from "./AXIOSClient";
 import { Platform } from "./axiosClientForPlatforms";
 
 export interface Game {

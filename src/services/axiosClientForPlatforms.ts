@@ -1,4 +1,4 @@
-import AXIOSClient from "./AXIOSClinet";
+import AXIOSClient from "./AXIOSClient";
 
 export interface Platform {
   id: number;

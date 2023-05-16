@@ -1,5 +1,5 @@
 import axios from "axios";
-import AXIOSClient from "./AXIOSClinet";
+import AXIOSClient from "./AXIOSClient";
 
 export interface Genre {
   id: number;
