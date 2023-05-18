@@ -3,15 +3,20 @@ import { Genre } from "../services/axiosClientForGenres";
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import useFetchGenres from "../hooks/useFetchGenres";
+import useQueryGameStore from "./store";
 
-interface Props {
+/* interface Props {
   onSelectGenre: (genre: Genre) => void;
   selectedGenre: Genre | null;
-}
+} */
 
-const GenreSelector = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreSelector = (/* { onSelectGenre, selectedGenre }: Props */) => {
   const { resIncludingGenres, error, isLoading } = useFetchGenres();
   if (error) return null;
+  const { genreQuery, selectGenre } = useQueryGameStore((state) => ({
+    genreQuery: state.genreQuery,
+    selectGenre: state.selectGenre,
+  }));
 
   return (
     <Menu>
@@ -21,13 +26,14 @@ const GenreSelector = ({ onSelectGenre, selectedGenre }: Props) => {
         rightIcon={<BsChevronDown />}
         textAlign={"start"}
       >
-        {selectedGenre?.name ? selectedGenre.name : "Filter by Genre"}
+        {genreQuery?.name ? genreQuery.name : "Filter by Genre"}
+        {/* {selectedGenre?.name ? selectedGenre.name : "Filter by Genre"} */}
         {/*  {`Genre by ${selectedGenre?.name || ""}`} */}
       </MenuButton>
       <MenuList>
         {resIncludingGenres?.results.map((eachGenre) => (
           <MenuItem
-            onClick={() => onSelectGenre(eachGenre)}
+            onClick={() => selectGenre(eachGenre)}
             key={eachGenre.id}
             value={eachGenre.slug}
           >

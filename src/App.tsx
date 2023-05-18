@@ -10,6 +10,7 @@ import SortSelector, { Sort } from "./components/SortSelector";
 import GenreSelector from "./components/GenreSelector";
 import { Genre } from "./services/axiosClientForGenres";
 import { Platform } from "./services/axiosClientForPlatforms";
+import useQueryGameStore from "./components/store";
 
 export interface QueryGame {
   genre: Genre | null;
@@ -23,7 +24,9 @@ const App = () => {
   const [selectedPlatform, SetSelectedPlatform] = useState<Platform | null>(
     null
   ); */
-  const [queryGame, setQueryGame] = useState<QueryGame>({} as QueryGame);
+  /* const [queryGame, setQueryGame] = useState<QueryGame>({} as QueryGame); */
+
+  const resetAllFilters = useQueryGameStore((state) => state.resetAllFilters);
 
   return (
     <>
@@ -39,13 +42,13 @@ const App = () => {
       >
         <GridItem area={"nav"}>
           <NavBar
-            onSearch={(search) => setQueryGame({ ...queryGame, search })}
+          /* onSearch={(search) => setQueryGame({ ...queryGame, search })} */
           />
         </GridItem>
         <Show above="lg">
           <GridItem area={"aside"}>
             <GenreList
-              onSelectGenre={(genre) =>
+            /* onSelectGenre={(genre) =>
                 setQueryGame({
                   ...queryGame,
                   genre: {
@@ -56,7 +59,7 @@ const App = () => {
                   },
                 })
               }
-              selectedGenre={queryGame.genre}
+              selectedGenre={queryGame.genre} */
             />
           </GridItem>
         </Show>
@@ -64,7 +67,7 @@ const App = () => {
           <HStack spacing={5} paddingStart={2} marginTop={5}>
             <Box>
               <PlatformFilter
-                onSelectPlatform={(platform) =>
+              /* onSelectPlatform={(platform) =>
                   setQueryGame({
                     ...queryGame,
                     platform: {
@@ -74,24 +77,25 @@ const App = () => {
                     },
                   })
                 }
-                selectedPlatform={queryGame.platform}
+                selectedPlatform={queryGame.platform} */
               />
             </Box>
             <Box>
               <SortSelector
-                onSelectSort={(sort) => setQueryGame({ ...queryGame, sort })}
-                selectedSort={queryGame.sort}
+              /* onSelectSort={(sort) => setQueryGame({ ...queryGame, sort })}
+                selectedSort={queryGame.sort} */
               />
             </Box>
             <Show above="lg">
               <Button
                 onClick={() => {
-                  setQueryGame({} as QueryGame);
+                  /*setQueryGame({} as QueryGame);*/
+                  resetAllFilters();
                   const resetBtn = document.getElementById("resetBtn");
                   if (resetBtn) resetBtn.click();
                 }}
               >
-                Reset filters
+                Reset all filters
               </Button>
             </Show>
           </HStack>
@@ -99,24 +103,25 @@ const App = () => {
             <HStack spacing={5} paddingStart={2} marginTop={2}>
               <Box>
                 <GenreSelector
-                  onSelectGenre={(genre) =>
+                /* onSelectGenre={(genre) =>
                     setQueryGame({ ...queryGame, genre })
                   }
-                  selectedGenre={queryGame.genre}
+                  selectedGenre={queryGame.genre} */
                 />
               </Box>
               <Button
                 onClick={() => {
-                  setQueryGame({} as QueryGame);
+                  /*setQueryGame({} as QueryGame);*/
+                  resetAllFilters();
                   const resetBtn = document.getElementById("resetBtn");
                   if (resetBtn) resetBtn.click();
                 }}
               >
-                Reset filters
+                Reset all filters
               </Button>
             </HStack>
           </Show>
-          <GameGrid queryGame={queryGame} />
+          <GameGrid /* queryGame={queryGame} */ />
         </GridItem>
       </Grid>
     </>

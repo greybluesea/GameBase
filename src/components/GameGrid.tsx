@@ -7,11 +7,11 @@ import { QueryGame } from "../App";
 import InfiniteScroll from "react-infinite-scroll-component";
 import LoadMoreBtn from "./LoadMoreBtn";
 
-interface Props {
+/* interface Props {
   queryGame: QueryGame;
 }
-
-const GameGrid = ({ queryGame }: Props) => {
+ */
+const GameGrid = (/* { queryGame }: Props */) => {
   const {
     resIncludingGames,
     error,
@@ -19,7 +19,7 @@ const GameGrid = ({ queryGame }: Props) => {
     fetchNextPage,
     isFetchingNextPage,
     hasNextPage,
-  } = useFetchGames(queryGame);
+  } = useFetchGames();
   const skeletonArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   if (error) return <Text>{error.message}</Text>;
 

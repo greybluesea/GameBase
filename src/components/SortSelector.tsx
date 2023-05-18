@@ -1,18 +1,24 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 
 import { BsChevronDown } from "react-icons/bs";
+import useQueryGameStore from "./store";
 
-interface Props {
+/* interface Props {
   onSelectSort: (sort: Sort) => void;
   selectedSort: Sort | null;
-}
+} */
 
 export interface Sort {
   value: string;
   name: string;
 }
 
-const SortSelector = ({ onSelectSort, selectedSort }: Props) => {
+const SortSelector = (/* { onSelectSort, selectedSort }: Props */) => {
+  const { sortQuery, selectSort } = useQueryGameStore((state) => ({
+    sortQuery: state.sortQuery,
+    selectSort: state.selectSort,
+  }));
+
   const sortArray = [
     { value: "name", name: "Name" },
     { value: "-released", name: "Newly Released" },
@@ -23,8 +29,6 @@ const SortSelector = ({ onSelectSort, selectedSort }: Props) => {
     { value: "-metacritic", name: "Highest MetaScore" },
   ];
 
-  const nameMappingObject = {};
-
   return (
     <Menu>
       <MenuButton
@@ -33,17 +37,17 @@ const SortSelector = ({ onSelectSort, selectedSort }: Props) => {
         rightIcon={<BsChevronDown />}
         textAlign={"start"}
       >
-        {selectedSort?.name
-          ? selectedSort.name === "Name"
+        {sortQuery?.name
+          ? sortQuery.name === "Name"
             ? "Sort by Name"
-            : selectedSort.name
+            : sortQuery.name
           : "Sort by"}
         {/*  {`Sort by ${selectedSort?.name || ""}`} */}
       </MenuButton>
       <MenuList>
         {sortArray.map((eachSort) => (
           <MenuItem
-            onClick={() => onSelectSort(eachSort)}
+            onClick={() => selectSort(eachSort)}
             key={eachSort.value}
             value={eachSort.value}
           >

@@ -4,11 +4,11 @@ import logo from "../assets/GameHubResources/Logo/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 
-interface Props {
+/* interface Props {
   onSearch: (search: string) => void;
-}
+} */
 
-const NavBar = ({ onSearch }: Props) => {
+const NavBar = (/* { onSearch }: Props */) => {
   const { isOpen, onOpen, onClose } = react.useDisclosure();
   return (
     <HStack
@@ -32,7 +32,8 @@ const NavBar = ({ onSearch }: Props) => {
             <react.List>
               <react.ListItem>API provided by RAWG</react.ListItem>
               <react.ListItem>ReactQuery/TansQuery + Axios</react.ListItem>
-              <react.ListItem>Git + Github</react.ListItem>
+              <react.ListItem>Zustand</react.ListItem>
+              <react.ListItem>Git + GitHub</react.ListItem>
               <react.ListItem>deployed onto Vercel</react.ListItem>
               <react.ListItem>Chakra UI library</react.ListItem>
               <react.ListItem>Typescript + React 18 + Vite</react.ListItem>
@@ -54,7 +55,7 @@ const NavBar = ({ onSearch }: Props) => {
           GameBase
         </Heading>
       </Show>
-      <SearchInput onSearch={onSearch} />
+      <SearchInput /* onSearch= {onSearch} */ />
       <ColorModeSwitch />
     </HStack>
   );

@@ -12,16 +12,21 @@ import React from "react";
 import useFetchGenres from "../hooks/useFetchGenres";
 import getCroppedImageURL from "../hooks/CropImage";
 import { Genre } from "../services/axiosClientForGenres";
+import useQueryGameStore from "./store";
 
-interface Props {
+/* interface Props {
   onSelectGenre: (genre: Genre) => void;
   selectedGenre: Genre | null;
-}
+} */
 
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreList = (/* { onSelectGenre, selectedGenre }: Props */) => {
   const { resIncludingGenres, error, isLoading } = useFetchGenres();
   const spinnerArray = [1, 2, 3, 4, 5, 6];
   if (error) return null;
+  const { genreQuery, selectGenre } = useQueryGameStore((state) => ({
+    genreQuery: state.genreQuery,
+    selectGenre: state.selectGenre,
+  }));
   return (
     <>
       <List spacing={4} marginTop={5}>
@@ -44,16 +49,14 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
               ></Image>
               <Button
                 key={eachGenre.id}
-                fontWeight={
-                  eachGenre.id === selectedGenre?.id ? "bold" : "normal"
-                }
+                fontWeight={eachGenre.id === genreQuery?.id ? "bold" : "normal"}
                 fontSize="lg"
                 marginTop={"16px"}
                 marginBottom={"0"}
                 variant={"ghost"}
                 whiteSpace={"normal"}
                 textAlign={"start"}
-                onClick={() => onSelectGenre(eachGenre)}
+                onClick={() => selectGenre(eachGenre)}
               >
                 {eachGenre.name}
               </Button>

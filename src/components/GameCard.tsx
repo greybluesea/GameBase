@@ -24,7 +24,7 @@ const GameCard = ({ game }: Props) => {
         <Heading fontSize={"3xl"}>{game.name}</Heading>
         <HStack justifyContent={"space-between"}>
           <PlatformIconList
-            platforms={game.parent_platforms.map((each) => each.platform)}
+            platforms={game.parent_platforms?.map((each) => each.platform)}
           />
           <HStack>
             <Emoji rating={game.rating_top} />
