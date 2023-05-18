@@ -1,24 +1,20 @@
-import { Box, Button, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
-import NavBar from "./components/NavBar";
+import { Box, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
-import { useState } from "react";
+import NavBar from "./components/NavBar";
 
 import PlatformFilter from "./components/PlatformFilter";
 
-import SortSelector, { Sort } from "./components/SortSelector";
 import GenreSelector from "./components/GenreSelector";
-import { Genre } from "./services/axiosClientForGenres";
-import { Platform } from "./services/axiosClientForPlatforms";
-import useQueryGameStore from "./components/store";
 import ResetBtn from "./components/ResetBtn";
+import SortSelector from "./components/SortSelector";
 
-export interface QueryGame {
+/* export interface QueryGame {
   genre: Genre | null;
   platform: Platform | null;
   sort: Sort | null;
   search: string | null;
-}
+} */
 
 const App = () => {
   /* const [selectedGenre, SetSelectedGenre] = useState<Genre | null>(null);

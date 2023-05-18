@@ -1,11 +1,10 @@
-import { Button, HStack, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import { SimpleGrid, Text } from "@chakra-ui/react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import useFetchGames from "../hooks/useFetchGames";
 import GameCard from "./GameCard";
-import SkeletonCard from "./SkeletonCard";
 import GameCardContainer from "./GameCardContainer";
-import { QueryGame } from "../App";
-import InfiniteScroll from "react-infinite-scroll-component";
 import LoadMoreBtn from "./LoadMoreBtn";
+import SkeletonCard from "./SkeletonCard";
 
 /* interface Props {
   queryGame: QueryGame;
