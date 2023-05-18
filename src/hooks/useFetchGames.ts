@@ -5,13 +5,11 @@ import { ResFromFetch } from "../services/AXIOSClient";
 import axiosClientForGames, { Game } from "../services/axiosClientForGames";
 
 const useFetchGames = (/* queryGame: QueryGame */) => {
-  const { genreQuery, platformQuery, sortQuery, searchTextQuery } =
-    useQueryGameStore((state) => ({
-      genreQuery: state.genreQuery,
-      platformQuery: state.platformQuery,
-      sortQuery: state.sortQuery,
-      searchTextQuery: state.searchTextQuery,
-    }));
+  const genreQuery = useQueryGameStore((state) => state.genreQuery);
+  const platformQuery = useQueryGameStore((state) => state.platformQuery);
+  const sortQuery = useQueryGameStore((state) => state.sortQuery);
+  const searchTextQuery = useQueryGameStore((state) => state.searchTextQuery);
+
   const {
     data: resIncludingGames,
     error,
@@ -21,11 +19,11 @@ const useFetchGames = (/* queryGame: QueryGame */) => {
     hasNextPage,
   } = useInfiniteQuery<ResFromFetch<Game>, AxiosError>({
     queryKey: [
-      "/games",
+      "games",
       {
-        genres: genreQuery?.name,
-        parent_platforms: platformQuery?.name,
-        ordering: sortQuery?.name,
+        genre: genreQuery?.name,
+        parent_platform: platformQuery?.name,
+        sort: sortQuery?.name,
         search: searchTextQuery ? searchTextQuery : undefined,
       },
       /* {
@@ -61,6 +59,7 @@ const useFetchGames = (/* queryGame: QueryGame */) => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
     staleTime: 24 * 60 * 60 * 1000,
+    cacheTime: 24 * 60 * 60 * 1000,
   });
 
   /* const useFetchGames = (queryGame: QueryGame) => {

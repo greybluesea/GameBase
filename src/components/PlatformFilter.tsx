@@ -1,7 +1,6 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import useFetchPlatforms from "../hooks/useFetchPlatforms";
 import { BsChevronDown } from "react-icons/bs";
-import { Platform } from "../services/axiosClientForPlatforms";
 import useQueryGameStore from "./store";
 
 /* interface Props {
@@ -12,10 +11,11 @@ import useQueryGameStore from "./store";
 const PlatformFilter =
   (/* { onSelectPlatform, selectedPlatform }: Props */) => {
     const { resIncludingPlatforms, error, isLoading } = useFetchPlatforms();
-    const { platformQuery, selectPlatform } = useQueryGameStore((state) => ({
-      platformQuery: state.platformQuery,
-      selectPlatform: state.selectPlatform,
-    }));
+
+    const platformQuery = useQueryGameStore((state) => state.platformQuery);
+    const selectPlatform = useQueryGameStore((state) => state.selectPlatform);
+
+    /* console.log("PlatformFilter re-rendered"); */
 
     if (error) return null;
 

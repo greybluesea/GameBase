@@ -10,6 +10,7 @@ import SearchInput from "./SearchInput";
 
 const NavBar = (/* { onSearch }: Props */) => {
   const { isOpen, onOpen, onClose } = react.useDisclosure();
+  console.log("NavBar re-rendered");
   return (
     <HStack
       justifyContent={"space-evenly"}

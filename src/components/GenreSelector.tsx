@@ -13,10 +13,11 @@ import useQueryGameStore from "./store";
 const GenreSelector = (/* { onSelectGenre, selectedGenre }: Props */) => {
   const { resIncludingGenres, error, isLoading } = useFetchGenres();
   if (error) return null;
-  const { genreQuery, selectGenre } = useQueryGameStore((state) => ({
-    genreQuery: state.genreQuery,
-    selectGenre: state.selectGenre,
-  }));
+
+  const genreQuery = useQueryGameStore((state) => state.genreQuery);
+  const selectGenre = useQueryGameStore((state) => state.selectGenre);
+
+  /*   console.log("GenreSelector re-rendered"); */
 
   return (
     <Menu>

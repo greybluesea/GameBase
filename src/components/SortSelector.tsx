@@ -14,10 +14,10 @@ export interface Sort {
 }
 
 const SortSelector = (/* { onSelectSort, selectedSort }: Props */) => {
-  const { sortQuery, selectSort } = useQueryGameStore((state) => ({
-    sortQuery: state.sortQuery,
-    selectSort: state.selectSort,
-  }));
+  const sortQuery = useQueryGameStore((state) => state.sortQuery);
+  const selectSort = useQueryGameStore((state) => state.selectSort);
+
+  /*  console.log("SortSelector re-rendered"); */
 
   const sortArray = [
     { value: "name", name: "Name" },

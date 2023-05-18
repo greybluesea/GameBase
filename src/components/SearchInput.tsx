@@ -10,6 +10,7 @@ import useQueryGameStore from "./store";
 const SearchInput = (/* { onSearch }: Props */) => {
   const ref = useRef<HTMLInputElement>(null);
   const setSearchText = useQueryGameStore((state) => state.setSearchText);
+  /* console.log("SearchInput re-rendered"); */
   return (
     <>
       <form

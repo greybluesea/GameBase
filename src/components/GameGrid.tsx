@@ -26,6 +26,8 @@ const GameGrid = (/* { queryGame }: Props */) => {
     (total, page) => page.results.length + total,
     0
   );
+  /* console.log("GameGrid re-rendered"); */
+
   return (
     <>
       <InfiniteScroll

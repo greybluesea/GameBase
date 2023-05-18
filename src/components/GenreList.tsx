@@ -23,10 +23,11 @@ const GenreList = (/* { onSelectGenre, selectedGenre }: Props */) => {
   const { resIncludingGenres, error, isLoading } = useFetchGenres();
   const spinnerArray = [1, 2, 3, 4, 5, 6];
   if (error) return null;
-  const { genreQuery, selectGenre } = useQueryGameStore((state) => ({
-    genreQuery: state.genreQuery,
-    selectGenre: state.selectGenre,
-  }));
+
+  const genreQuery = useQueryGameStore((state) => state.genreQuery);
+  const selectGenre = useQueryGameStore((state) => state.selectGenre);
+
+  /*  console.log("GenreList re-rendered"); */
   return (
     <>
       <List spacing={4} marginTop={5}>
