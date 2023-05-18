@@ -11,6 +11,7 @@ import GenreSelector from "./components/GenreSelector";
 import { Genre } from "./services/axiosClientForGenres";
 import { Platform } from "./services/axiosClientForPlatforms";
 import useQueryGameStore from "./components/store";
+import ResetBtn from "./components/ResetBtn";
 
 export interface QueryGame {
   genre: Genre | null;
@@ -25,8 +26,6 @@ const App = () => {
     null
   ); */
   /* const [queryGame, setQueryGame] = useState<QueryGame>({} as QueryGame); */
-
-  const resetAllFilters = useQueryGameStore((state) => state.resetAllFilters);
 
   return (
     <>
@@ -87,16 +86,7 @@ const App = () => {
               />
             </Box>
             <Show above="lg">
-              <Button
-                onClick={() => {
-                  /*setQueryGame({} as QueryGame);*/
-                  resetAllFilters();
-                  const resetBtn = document.getElementById("resetBtn");
-                  if (resetBtn) resetBtn.click();
-                }}
-              >
-                Reset all filters
-              </Button>
+              <ResetBtn />
             </Show>
           </HStack>
           <Show below="lg">
@@ -109,16 +99,7 @@ const App = () => {
                   selectedGenre={queryGame.genre} */
                 />
               </Box>
-              <Button
-                onClick={() => {
-                  /*setQueryGame({} as QueryGame);*/
-                  resetAllFilters();
-                  const resetBtn = document.getElementById("resetBtn");
-                  if (resetBtn) resetBtn.click();
-                }}
-              >
-                Reset all filters
-              </Button>
+              <ResetBtn />
             </HStack>
           </Show>
           <GameGrid /* queryGame={queryGame} */ />
