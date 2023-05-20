@@ -20,20 +20,23 @@ const RetractableText = ({ children, maxLength = 400 }: Props) => {
 
   return (
     <>
-      <Text display={"inline"}>{displayText}</Text>
+      <Text display={"inline"} fontSize="md">
+        {displayText}
+      </Text>
       {children.length > maxLength && (
         <>
           {isRetracted && <span>...</span>}
-          <Button
+          <Badge
             display={"inline"}
-            as={Badge}
+            /* as={Badge} */
             size={"xs"}
+            colorScheme="purple"
             variant={"subtle"}
             onClick={toggleRetractionStatus}
             marginStart={1}
           >
             {isRetracted ? "Read More" : "Show Less"}
-          </Button>
+          </Badge>
         </>
       )}
     </>

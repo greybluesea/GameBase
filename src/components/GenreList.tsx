@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   HStack,
   Image,
@@ -13,6 +14,7 @@ import useFetchGenres from "../hooks/useFetchGenres";
 import getCroppedImageURL from "../hooks/CropImage";
 import { Genre } from "../entities/Genre";
 import useQueryGameStore from "../store/store";
+import GenreSelector from "./GenreSelector";
 
 /* interface Props {
   onSelectGenre: (genre: Genre) => void;
@@ -29,7 +31,8 @@ const GenreList = (/* { onSelectGenre, selectedGenre }: Props */) => {
 
   /*  console.log("GenreList re-rendered"); */
   return (
-    <>
+    <Box marginTop={3}>
+      {/* <GenreSelector /> */}
       <List spacing={4} marginTop={5}>
         {isLoading && (
           <VStack spacing={4} alignItems={"start"}>
@@ -65,7 +68,7 @@ const GenreList = (/* { onSelectGenre, selectedGenre }: Props */) => {
           </ListItem>
         ))}
       </List>
-    </>
+    </Box>
   );
 };
 

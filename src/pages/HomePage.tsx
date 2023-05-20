@@ -30,7 +30,7 @@ const HomePage = () => {
           </GridItem>
         </Show>
         <GridItem area={"main"}>
-          <HStack spacing={5} paddingStart={2} marginTop={5}>
+          <HStack spacing={5} paddingStart={2} marginTop={3}>
             <Box>
               <PlatformFilter />
             </Box>
@@ -49,8 +49,9 @@ const HomePage = () => {
               <ResetBtn />
             </HStack>
           </Show>
-          <Outlet />
-          {/* <GameGrid /> */}
+          <Box marginTop={2}>
+            <Outlet />
+          </Box>
         </GridItem>
       </Grid>
     </>
