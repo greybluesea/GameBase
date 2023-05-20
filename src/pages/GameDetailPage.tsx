@@ -1,8 +1,7 @@
-import React from "react";
+import { Heading } from "@chakra-ui/react";
+import { useLocation } from "react-router-dom";
+import RetractableText from "../components/RetractableText";
 import useFetchGameDetails from "../hooks/useFetchGameDetails";
-import { useLocation, useParams } from "react-router-dom";
-import ErrorGamePage from "./ErrorGamePage";
-import { Heading, Text } from "@chakra-ui/react";
 
 const GameDetailPage = () => {
   const { state } = useLocation();
@@ -14,7 +13,7 @@ const GameDetailPage = () => {
   return (
     <>
       <Heading>{gameDetails.name}</Heading>
-      <Text>{gameDetails.description_raw}</Text>
+      <RetractableText>{gameDetails.description_raw}</RetractableText>
     </>
   );
 };
