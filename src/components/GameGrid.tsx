@@ -5,6 +5,7 @@ import GameCard from "./GameCard";
 import GameCardContainer from "./GameCardContainer";
 import LoadMoreBtn from "./LoadMoreBtn";
 import SkeletonCard from "./SkeletonCard";
+import ErrorGamePage from "../pages/ErrorGamePage";
 
 /* interface Props {
   queryGame: QueryGame;
@@ -20,7 +21,7 @@ const GameGrid = (/* { queryGame }: Props */) => {
     hasNextPage,
   } = useFetchGames();
   const skeletonArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  if (error) return <Text>{error.message}</Text>;
+  if (error) return /* <Text>{error.message}</Text> */ <ErrorGamePage />;
 
   const totalFetchedGames = dataIncludingGames?.pages.reduce(
     (total, page) => page.results.length + total,

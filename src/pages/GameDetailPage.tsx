@@ -15,6 +15,7 @@ const GameDetailPage = () => {
     <>
       <Heading>{gameDetails.name}</Heading>
       <RetractableText>{gameDetails.description_raw}</RetractableText>
+      {/* <div dangerouslySetInnerHTML={{ __html: gameDetails.description }} /> */}
     </>
   );
 };
