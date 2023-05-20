@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { Genre } from "../services/axiosClientForGenres";
 import { Platform } from "../services/axiosClientForPlatforms";
-import { Sort } from "./SortSelector";
+import { Sort } from "../components/SortSelector";
 
 interface QueryGameStore {
   genreQuery: Genre | null;
@@ -43,6 +43,9 @@ const useQueryGameStore = create<QueryGameStore>((set) => ({
     })),
   setSearchText: (searchText) =>
     set(() => ({
+      /* genreQuery: null,
+      platformQuery: null,
+      sortQuery: null, */
       searchTextQuery: searchText,
     })),
   resetAllFilters: () =>

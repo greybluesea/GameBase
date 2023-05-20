@@ -1,4 +1,4 @@
-import useQueryGameStore from "./store";
+import useQueryGameStore from "../store/store";
 import { Button } from "@chakra-ui/react";
 
 const ResetBtn = () => {

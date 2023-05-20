@@ -1,7 +1,7 @@
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import React, { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
-import useQueryGameStore from "./store";
+import useQueryGameStore from "../store/store";
 
 /* interface Props {
   onSearch: (search: string) => void;

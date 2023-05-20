@@ -3,7 +3,7 @@ import { Genre } from "../services/axiosClientForGenres";
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import useFetchGenres from "../hooks/useFetchGenres";
-import useQueryGameStore from "./store";
+import useQueryGameStore from "../store/store";
 
 /* interface Props {
   onSelectGenre: (genre: Genre) => void;

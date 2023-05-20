@@ -12,7 +12,7 @@ import React from "react";
 import useFetchGenres from "../hooks/useFetchGenres";
 import getCroppedImageURL from "../hooks/CropImage";
 import { Genre } from "../services/axiosClientForGenres";
-import useQueryGameStore from "./store";
+import useQueryGameStore from "../store/store";
 
 /* interface Props {
   onSelectGenre: (genre: Genre) => void;
