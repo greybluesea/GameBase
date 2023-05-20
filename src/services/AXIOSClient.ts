@@ -31,16 +31,7 @@ export default class AXIOSClient<T> {
       .post<T>(this.endpoint, newData)
       .then((res) => res.data);
   }; */
-}
-
-export class AXIOSClientForGameDetails<T> {
-  endpoint: string;
-
-  constructor(endpoint: string) {
-    this.endpoint = endpoint;
-  }
-
-  get = (id: number) => {
+  getDetails = (id: number) => {
     return instanceOfAxios
       .get<T>(this.endpoint + "/" + id)
       .then((res) => res.data);

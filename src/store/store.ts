@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import { Genre } from "../services/axiosClientForGenres";
-import { Platform } from "../services/axiosClientForPlatforms";
+import { Genre } from "../entities/Genre";
+import { Platform } from "../entities/Platform";
 import { Sort } from "../components/SortSelector";
 
 interface QueryGameStore {

@@ -1,8 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import axiosClientForPlatforms, {
-  Platform,
-} from "../services/axiosClientForPlatforms";
+import axiosClientForPlatforms from "../services/axiosClientForPlatforms";
+import { Platform } from "../entities/Platform";
 import { DataFromFetch } from "../services/AXIOSClient";
 
 const useFetchPlatforms = () => {

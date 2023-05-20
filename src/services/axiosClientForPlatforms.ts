@@ -1,10 +1,5 @@
 import AXIOSClient from "./AXIOSClient";
-
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
+import { Platform } from "../entities/Platform";
 
 const axiosClientForPlatforms = new AXIOSClient<Platform>(
   "/platforms/lists/parents"

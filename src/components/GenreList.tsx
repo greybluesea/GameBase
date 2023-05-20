@@ -11,7 +11,7 @@ import {
 import React from "react";
 import useFetchGenres from "../hooks/useFetchGenres";
 import getCroppedImageURL from "../hooks/CropImage";
-import { Genre } from "../services/axiosClientForGenres";
+import { Genre } from "../entities/Genre";
 import useQueryGameStore from "../store/store";
 
 /* interface Props {

@@ -14,7 +14,7 @@ import PlatformIconList from "./PlatformIconList";
 import ScoreBadge from "./ScoreBadge";
 import getCroppedImageURL from "../hooks/CropImage";
 import Emoji from "./Emoji";
-import { Game } from "../services/axiosClientForGames";
+import { Game } from "../entities/Game";
 import { Link } from "react-router-dom";
 
 interface Props {
