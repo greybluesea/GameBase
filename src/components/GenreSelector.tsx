@@ -11,7 +11,7 @@ import useQueryGameStore from "../store/store";
 } */
 
 const GenreSelector = (/* { onSelectGenre, selectedGenre }: Props */) => {
-  const { resIncludingGenres, error, isLoading } = useFetchGenres();
+  const { dataIncludingGenres, error, isLoading } = useFetchGenres();
   if (error) return null;
 
   const genreQuery = useQueryGameStore((state) => state.genreQuery);
@@ -32,7 +32,7 @@ const GenreSelector = (/* { onSelectGenre, selectedGenre }: Props */) => {
         {/*  {`Genre by ${selectedGenre?.name || ""}`} */}
       </MenuButton>
       <MenuList>
-        {resIncludingGenres?.results.map((eachGenre) => (
+        {dataIncludingGenres?.results.map((eachGenre) => (
           <MenuItem
             onClick={() => selectGenre(eachGenre)}
             key={eachGenre.id}

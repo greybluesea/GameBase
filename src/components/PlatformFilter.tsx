@@ -10,7 +10,7 @@ import useQueryGameStore from "../store/store";
  */
 const PlatformFilter =
   (/* { onSelectPlatform, selectedPlatform }: Props */) => {
-    const { resIncludingPlatforms, error, isLoading } = useFetchPlatforms();
+    const { dataIncludingPlatforms, error, isLoading } = useFetchPlatforms();
 
     const platformQuery = useQueryGameStore((state) => state.platformQuery);
     const selectPlatform = useQueryGameStore((state) => state.selectPlatform);
@@ -31,7 +31,7 @@ const PlatformFilter =
           {platformQuery?.name || "Filter by Platform"}
         </MenuButton>
         <MenuList>
-          {resIncludingPlatforms?.results.map((eachPlatform) => (
+          {dataIncludingPlatforms?.results.map((eachPlatform) => (
             <MenuItem
               onClick={() => selectPlatform(eachPlatform)}
               key={eachPlatform.id}

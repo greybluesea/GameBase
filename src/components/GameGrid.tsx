@@ -12,7 +12,7 @@ import SkeletonCard from "./SkeletonCard";
  */
 const GameGrid = (/* { queryGame }: Props */) => {
   const {
-    resIncludingGames,
+    dataIncludingGames,
     error,
     isLoading,
     fetchNextPage,
@@ -22,7 +22,7 @@ const GameGrid = (/* { queryGame }: Props */) => {
   const skeletonArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   if (error) return <Text>{error.message}</Text>;
 
-  const totalFetchedGames = resIncludingGames?.pages.reduce(
+  const totalFetchedGames = dataIncludingGames?.pages.reduce(
     (total, page) => page.results.length + total,
     0
   );
@@ -53,7 +53,7 @@ const GameGrid = (/* { queryGame }: Props */) => {
                   <SkeletonCard /* key={each} */ />
                 </GameCardContainer>
               ))
-            : resIncludingGames?.pages.map((page) =>
+            : dataIncludingGames?.pages.map((page) =>
                 page.results.map((each) => (
                   <GameCardContainer key={each.id}>
                     {" "}

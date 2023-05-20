@@ -20,7 +20,7 @@ import useQueryGameStore from "../store/store";
 } */
 
 const GenreList = (/* { onSelectGenre, selectedGenre }: Props */) => {
-  const { resIncludingGenres, error, isLoading } = useFetchGenres();
+  const { dataIncludingGenres, error, isLoading } = useFetchGenres();
   const spinnerArray = [1, 2, 3, 4, 5, 6];
   if (error) return null;
 
@@ -38,7 +38,7 @@ const GenreList = (/* { onSelectGenre, selectedGenre }: Props */) => {
             ))}
           </VStack>
         )}
-        {resIncludingGenres?.results.map((eachGenre) => (
+        {dataIncludingGenres?.results.map((eachGenre) => (
           <ListItem key={eachGenre.id}>
             <HStack>
               <Image

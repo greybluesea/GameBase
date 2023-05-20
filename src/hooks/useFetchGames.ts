@@ -1,7 +1,7 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import useQueryGameStore from "../store/store";
-import { ResFromFetch } from "../services/AXIOSClient";
+import { DataFromFetch } from "../services/AXIOSClient";
 import axiosClientForGames, { Game } from "../services/axiosClientForGames";
 
 const useFetchGames = (/* queryGame: QueryGame */) => {
@@ -11,13 +11,13 @@ const useFetchGames = (/* queryGame: QueryGame */) => {
   const searchTextQuery = useQueryGameStore((state) => state.searchTextQuery);
 
   const {
-    data: resIncludingGames,
+    data: dataIncludingGames,
     error,
     isLoading,
     fetchNextPage,
     isFetchingNextPage,
     hasNextPage,
-  } = useInfiniteQuery<ResFromFetch<Game>, AxiosError>({
+  } = useInfiniteQuery<DataFromFetch<Game>, AxiosError>({
     queryKey: [
       "games",
       {
@@ -64,10 +64,10 @@ const useFetchGames = (/* queryGame: QueryGame */) => {
 
   /* const useFetchGames = (queryGame: QueryGame) => {
   const {
-    data: resIncludingGames,
+    data: dataIncludingGames,
     error,
     isLoading,
-  } = useQuery<ResFromFetch<Game>, AxiosError>({
+  } = useQuery<DataFromFetch<Game>, AxiosError>({
     queryKey: ["/games", queryGame],
     queryFn: () =>
       axiosClientForGames.get({
@@ -99,7 +99,7 @@ const useFetchGames = (/* queryGame: QueryGame */) => {
   ); */
 
   return {
-    resIncludingGames,
+    dataIncludingGames,
     error,
     isLoading,
     fetchNextPage,

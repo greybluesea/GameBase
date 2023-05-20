@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 
-export interface ResFromFetch<T> {
+export interface DataFromFetch<T> {
   count: number;
   next?: string | null;
   results: T[];
@@ -22,7 +22,7 @@ export default class AXIOSClient<T> {
 
   get = (requestConfig: AxiosRequestConfig) => {
     return instanceOfAxios
-      .get<ResFromFetch<T>>(this.endpoint, requestConfig)
+      .get<DataFromFetch<T>>(this.endpoint, requestConfig)
       .then((res) => res.data);
   };
 
