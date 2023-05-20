@@ -4,7 +4,7 @@ import useQueryGameStore from "../store/store";
 import { DataFromFetch } from "../services/AXIOSClient";
 import axiosClientForGames, { Game } from "../services/axiosClientForGames";
 
-const useFetchGames = (/* queryGame: QueryGame */) => {
+const useFetchGames = () => {
   const genreQuery = useQueryGameStore((state) => state.genreQuery);
   const platformQuery = useQueryGameStore((state) => state.platformQuery);
   const sortQuery = useQueryGameStore((state) => state.sortQuery);
@@ -26,12 +26,6 @@ const useFetchGames = (/* queryGame: QueryGame */) => {
         sort: sortQuery?.name,
         search: searchTextQuery ? searchTextQuery : undefined,
       },
-      /* {
-        genres: queryGame?.genre?.name,
-        parent_platforms: queryGame?.platform?.name,
-        ordering: queryGame?.sort?.name,
-        search: queryGame?.search,
-      }, */
     ],
     queryFn: ({ pageParam = 1 }) =>
       axiosClientForGames.get({
@@ -43,15 +37,6 @@ const useFetchGames = (/* queryGame: QueryGame */) => {
           page: pageParam,
           page_size: 8,
         },
-
-        /* {
-          genres: queryGame?.genre?.id,
-          parent_platforms: queryGame?.platform?.id,
-          ordering: queryGame?.sort?.value,
-          search: queryGame?.search,
-          page: pageParam,
-          page_size: 8,
-        }, */
       }),
     keepPreviousData: true,
     getNextPageParam: (lastPage, allPages) => {
