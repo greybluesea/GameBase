@@ -1,4 +1,4 @@
-import { Heading } from "@chakra-ui/react";
+import { Heading, Spinner } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
 import RetractableText from "../components/RetractableText";
 import useFetchGameDetails from "../hooks/useFetchGameDetails";
@@ -13,6 +13,7 @@ const GameDetailPage = () => {
 
   return (
     <>
+      {isLoading && <Spinner></Spinner>}
       <Heading>{gameDetails.name}</Heading>
       <RetractableText>{gameDetails.description_raw}</RetractableText>
       {/* <div dangerouslySetInnerHTML={{ __html: gameDetails.description }} /> */}
