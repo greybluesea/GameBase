@@ -5,12 +5,12 @@ import useFetchGameDetails from "../hooks/useFetchGameDetails";
 import ErrorGamePage from "./ErrorGamePage";
 
 const GameDetailPage = () => {
-  const { slug } = useParams();
+  /*  const { slug } = useParams(); */
 
-  /* const { state } = useLocation(); */
+  const { state } = useLocation();
 
   /* if (!state.id) return <ErrorGamePage />; */
-  const { gameDetails, error, isLoading } = useFetchGameDetails(slug!);
+  const { gameDetails, error, isLoading } = useFetchGameDetails(state.id);
   if (isLoading) return <Spinner />;
   if (error || !gameDetails) return <ErrorGamePage />;
 
