@@ -25,7 +25,7 @@ const GameCard = ({ game }: Props) => {
   return (
     <Link
       to={"games/" + game.slug || game.id.toString()}
-      state={{ id: game.id }}
+      state={{ slug: game.slug, id: game.id }}
     >
       <Card height={"100%"}>
         <Image

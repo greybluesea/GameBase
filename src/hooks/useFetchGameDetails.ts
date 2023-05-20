@@ -3,7 +3,7 @@ import { AxiosError } from "axios";
 import axiosClientForGameDetails from "../services/axiosClientForGameDetails";
 import { Game } from "../entities/Game";
 
-const useFetchGameDetails = (id: number) => {
+const useFetchGameDetails = (id: number | string) => {
   const {
     data: gameDetails,
     error,

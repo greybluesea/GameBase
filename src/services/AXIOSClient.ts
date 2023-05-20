@@ -31,7 +31,7 @@ export default class AXIOSClient<T> {
       .post<T>(this.endpoint, newData)
       .then((res) => res.data);
   }; */
-  getDetails = (id: number) => {
+  getDetails = (id: number | string) => {
     return instanceOfAxios
       .get<T>(this.endpoint + "/" + id)
       .then((res) => res.data);
