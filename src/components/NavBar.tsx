@@ -3,6 +3,9 @@ import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 import ModalIcon from "./ModalIcon";
 
+import logo from "../assets/GameHubResources/Logo/logo.webp";
+import ModalLogo from "./ModalLogo";
+
 /* interface Props {
   onSearch: (search: string) => void;
 } */
@@ -18,12 +21,9 @@ const NavBar = (/* { onSearch }: Props */) => {
         lg: "3",
       }}
     >
-      <ModalIcon />
-      <Show above="md">
-        <Heading as="h4" size="md" style={{ marginRight: "50px" }}>
-          GameBase
-        </Heading>
-      </Show>
+      <Image src={logo} boxSize="60px" cursor={"pointer"} />
+      <ModalLogo />
+
       <SearchInput /* onSearch= {onSearch} */ />
       <ColorModeSwitch />
     </HStack>

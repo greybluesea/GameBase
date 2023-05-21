@@ -6,23 +6,15 @@ import {
   List,
   ListItem,
   Spinner,
-  Text,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
-import useFetchGenres from "../hooks/useFetchGenres";
 import getCroppedImageURL from "../hooks/CropImage";
-import { Genre } from "../entities/Genre";
+import useFetchGenres from "../hooks/useFetchGenres";
 import useQueryGameStore from "../store/store";
-import GenreSelector from "./GenreSelector";
 
-/* interface Props {
-  onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
-} */
-
-const GenreList = (/* { onSelectGenre, selectedGenre }: Props */) => {
+const GenreList = () => {
   const { dataIncludingGenres, error, isLoading } = useFetchGenres();
+
   const spinnerArray = [1, 2, 3, 4, 5, 6];
   if (error) return null;
 
@@ -32,7 +24,6 @@ const GenreList = (/* { onSelectGenre, selectedGenre }: Props */) => {
   /*  console.log("GenreList re-rendered"); */
   return (
     <Box marginTop={3}>
-      {/* <GenreSelector /> */}
       <List spacing={4} marginTop={5}>
         {isLoading && (
           <VStack spacing={4} alignItems={"start"}>
@@ -60,7 +51,9 @@ const GenreList = (/* { onSelectGenre, selectedGenre }: Props */) => {
                 variant={"ghost"}
                 whiteSpace={"normal"}
                 textAlign={"start"}
-                onClick={() => selectGenre(eachGenre)}
+                onClick={() => {
+                  selectGenre(eachGenre);
+                }}
               >
                 {eachGenre.name}
               </Button>

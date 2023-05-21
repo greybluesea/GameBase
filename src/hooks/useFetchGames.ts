@@ -4,6 +4,7 @@ import useQueryGameStore from "../store/store";
 import { DataFromFetch } from "../services/AXIOSClient";
 import axiosClientForGames from "../services/axiosClientForGames";
 import { Game } from "../entities/Game";
+import { useNavigate } from "react-router-dom";
 
 const useFetchGames = () => {
   const genreQuery = useQueryGameStore((state) => state.genreQuery);

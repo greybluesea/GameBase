@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { Genre } from "../entities/Genre";
 import { Platform } from "../entities/Platform";
-import { Sort } from "../components/SortSelector";
+import { Sort } from "../entities/Sort";
 
 interface QueryGameStore {
   genreQuery: Genre | null;
