@@ -39,7 +39,7 @@ const RetractableText = ({
           <Text display={"inline"} fontSize="md">
             {retractedText}
           </Text>
-          <span style={{ marginLeft: "-2px" }}>...</span>
+          <span>...</span>
         </>
       ) : (
         <>
