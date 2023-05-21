@@ -1,12 +1,22 @@
 import * as react from "@chakra-ui/react";
 import { Heading, Show } from "@chakra-ui/react";
+import useQueryGameStore from "../store/store";
 
-const ModalLogo = () => {
+const ModalBrand = () => {
+  const resetAllFilters = useQueryGameStore((state) => state.resetAllFilters);
   const { isOpen, onOpen, onClose } = react.useDisclosure();
   return (
     <>
       <Show above="md">
-        <div onClick={onOpen} id="ModalLogo">
+        <div
+          onClick={() => {
+            onOpen();
+            resetAllFilters();
+            const resetBtn = document.getElementById("resetBtn");
+            if (resetBtn) resetBtn.click();
+          }}
+          id="ModalBrand"
+        >
           <Heading
             as="h4"
             size="md"
@@ -51,4 +61,4 @@ const ModalLogo = () => {
   );
 };
 
-export default ModalLogo;
+export default ModalBrand;

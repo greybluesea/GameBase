@@ -39,7 +39,9 @@ const HomePage = () => {
                 <SortSelector />
               </Box>
               <Show above="lg">
-                <ResetBtn />
+                <div id="resetFiltersBtn">
+                  <ResetBtn />
+                </div>
               </Show>
             </HStack>
             <Show below="lg">

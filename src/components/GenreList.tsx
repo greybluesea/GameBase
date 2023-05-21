@@ -21,7 +21,7 @@ const GenreList = () => {
   const genreQuery = useQueryGameStore((state) => state.genreQuery);
   const selectGenre = useQueryGameStore((state) => state.selectGenre);
 
-  /*  console.log("GenreList re-rendered"); */
+  /* console.log("GenreList re-rendered"); */
   return (
     <Box marginTop={3}>
       <List spacing={4} marginTop={5}>

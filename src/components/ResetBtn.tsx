@@ -5,8 +5,8 @@ const ResetBtn = () => {
   const resetAllFilters = useQueryGameStore((state) => state.resetAllFilters);
   return (
     <Button
+      id="resetFiltersBtn"
       onClick={() => {
-        /*setQueryGame({} as QueryGame);*/
         resetAllFilters();
         const resetBtn = document.getElementById("resetBtn");
         if (resetBtn) resetBtn.click();

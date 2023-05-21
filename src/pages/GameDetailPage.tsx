@@ -14,7 +14,7 @@ const GameDetailPage = () => {
     };
 
     const filters = document.querySelectorAll(
-      ".css-r6z5ec, .css-fv5pzg, .css-wqpdoh, .css-m4y9sm, #ModalLogo"
+      ".css-r6z5ec, .css-fv5pzg, .css-wqpdoh, .css-m4y9sm, #ModalBrand"
     );
     if (filters) {
       filters.forEach((each) =>
@@ -39,6 +39,8 @@ const GameDetailPage = () => {
 
   if (isLoading) return <Spinner />;
   if (error || !gameDetails) return <ErrorGamePage />;
+
+  /* console.log("GameDetailPage re-rendered"); */
 
   return (
     <>
