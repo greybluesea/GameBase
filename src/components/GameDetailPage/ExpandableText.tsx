@@ -10,7 +10,7 @@ interface Props {
 const RetractableText = ({
   description_raw = "",
   description = "",
-  maxLength = 420,
+  maxLength = 400,
 }: Props) => {
   if (!description_raw && description)
     return <div dangerouslySetInnerHTML={{ __html: description }} />;
@@ -39,7 +39,7 @@ const RetractableText = ({
           <Text display={"inline"} fontSize="md">
             {retractedText}
           </Text>
-          <span style={{ marginLeft: "-4px" }}>...</span>
+          <span style={{ marginLeft: "-2px" }}>...</span>
         </>
       ) : (
         <>
