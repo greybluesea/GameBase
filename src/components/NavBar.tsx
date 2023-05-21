@@ -5,6 +5,7 @@ import SearchInput from "./SearchInput";
 import logo from "../assets/GameHubResources/Logo/logo.webp";
 import ModalBrand from "./ModalBrand";
 import useQueryGameStore from "../store/store";
+import clearSearchInput from "../utilities/clearSearchInput";
 
 const NavBar = () => {
   const resetAllFilters = useQueryGameStore((state) => state.resetAllFilters);
@@ -24,8 +25,7 @@ const NavBar = () => {
         cursor={"pointer"}
         onClick={() => {
           resetAllFilters();
-          const resetBtn = document.getElementById("resetBtn");
-          if (resetBtn) resetBtn.click();
+          clearSearchInput();
         }}
       />
       <ModalBrand />

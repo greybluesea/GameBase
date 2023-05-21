@@ -1,6 +1,7 @@
 import * as react from "@chakra-ui/react";
 import { Heading, Show } from "@chakra-ui/react";
 import useQueryGameStore from "../store/store";
+import clearSearchInput from "../utilities/clearSearchInput";
 
 const ModalBrand = () => {
   const resetAllFilters = useQueryGameStore((state) => state.resetAllFilters);
@@ -12,8 +13,7 @@ const ModalBrand = () => {
           onClick={() => {
             onOpen();
             resetAllFilters();
-            const resetBtn = document.getElementById("resetBtn");
-            if (resetBtn) resetBtn.click();
+            clearSearchInput();
           }}
           id="ModalBrand"
         >

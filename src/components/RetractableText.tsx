@@ -6,7 +6,7 @@ interface Props {
   maxLength?: number;
 }
 
-const RetractableText = ({ children, maxLength = 425 }: Props) => {
+const RetractableText = ({ children, maxLength = 420 }: Props) => {
   if (!children) return null;
 
   const [isRetracted, setRetractionStatus] = useState(true);

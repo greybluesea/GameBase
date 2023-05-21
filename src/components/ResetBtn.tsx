@@ -1,5 +1,6 @@
 import useQueryGameStore from "../store/store";
 import { Button } from "@chakra-ui/react";
+import clearSearchInput from "../utilities/clearSearchInput";
 
 const ResetBtn = () => {
   const resetAllFilters = useQueryGameStore((state) => state.resetAllFilters);
@@ -8,8 +9,7 @@ const ResetBtn = () => {
       id="resetFiltersBtn"
       onClick={() => {
         resetAllFilters();
-        const resetBtn = document.getElementById("resetBtn");
-        if (resetBtn) resetBtn.click();
+        clearSearchInput();
       }}
     >
       Reset all filters
