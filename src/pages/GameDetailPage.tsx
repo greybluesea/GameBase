@@ -1,9 +1,10 @@
 import { Heading, Spinner } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import RetractableText from "../components/RetractableText";
+import RetractableText from "../components/GameDetailPage/unused/RetractableText";
 import useFetchGameDetails from "../hooks/useFetchGameDetails";
 import ErrorGamePage from "./ErrorGamePage";
+import ExpandableText from "../components/GameDetailPage/ExpandableText";
 
 const GameDetailPage = () => {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const GameDetailPage = () => {
   const { slug } = useParams();
   const { gameDetails, error, isLoading } = useFetchGameDetails(slug!);
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <Spinner size={"lg"} />;
   if (error || !gameDetails) return <ErrorGamePage />;
 
   /* console.log("GameDetailPage re-rendered"); */
@@ -45,8 +46,10 @@ const GameDetailPage = () => {
   return (
     <>
       <Heading>{gameDetails.name}</Heading>
-      <RetractableText>{gameDetails.description_raw}</RetractableText>
-      {/* <div dangerouslySetInnerHTML={{ __html: gameDetails.description }} /> */}
+      <ExpandableText
+        description_raw={gameDetails.description_raw}
+        description={gameDetails.description}
+      />
     </>
   );
 };

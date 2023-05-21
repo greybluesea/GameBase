@@ -53,7 +53,7 @@ const HomePage = () => {
               </HStack>
             </Show>
           </div>
-          <Box marginTop={2}>
+          <Box marginTop={2} padding={2}>
             <Outlet />
           </Box>
         </GridItem>
