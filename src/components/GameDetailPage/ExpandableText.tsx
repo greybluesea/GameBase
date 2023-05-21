@@ -39,7 +39,7 @@ const RetractableText = ({
           <Text display={"inline"} fontSize="md">
             {retractedText}
           </Text>
-          <span>...</span>
+          <span style={{ marginLeft: "-4px" }}>...</span>
         </>
       ) : (
         <>
@@ -51,7 +51,7 @@ const RetractableText = ({
         size={"xs"}
         marginStart={1}
         marginBottom={1}
-        variant="outline"
+        /* variant="outline" */
         onClick={toggleExpansionStatus}
       >
         {!isExpanded ? "Read More" : "Show Less"}
