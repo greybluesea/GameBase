@@ -1,6 +1,6 @@
-import { Game } from "../entities/Game";
+import { GameDetails } from "../entities/GameDetals";
 import AXIOSClient from "./AXIOSClient";
 
-const axiosClientForGames = new AXIOSClient<Game>("/games");
+const axiosClientForGames = new AXIOSClient<GameDetails>("/games");
 
 export default axiosClientForGames;

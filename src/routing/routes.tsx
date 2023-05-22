@@ -1,9 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import GameGrid from "../components/GameGrid";
-import HomePage from "../pages/HomePage";
-import GameDetailPage from "../pages/GameDetailPage";
 import ErrorPage from "../pages/ErrorPage";
-import ErrorGamePage from "../pages/ErrorGamePage";
+import GameDetailPage from "../pages/GameDetailsPage";
+import HomePage from "../pages/HomePage";
 
 const router = createBrowserRouter([
   {

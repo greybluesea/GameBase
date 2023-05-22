@@ -1,12 +1,14 @@
-import { Heading, Spinner } from "@chakra-ui/react";
+import { Heading, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import RetractableText from "../components/GameDetailPage/unused/RetractableText";
+import ExpandableText from "../components/GameDetailsPage/ExpandableText";
+import GameAttributeItem from "../components/GameDetailsPage/GameAttributeItem";
+import ScoreBadge from "../components/ScoreBadge";
 import useFetchGameDetails from "../hooks/useFetchGameDetails";
 import ErrorGamePage from "./ErrorGamePage";
-import ExpandableText from "../components/GameDetailPage/ExpandableText";
+import GameAttributes from "../components/GameAttributes";
 
-const GameDetailPage = () => {
+const GameDetailsPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -50,8 +52,9 @@ const GameDetailPage = () => {
         description_raw={gameDetails.description_raw}
         description={gameDetails.description}
       />
+      <GameAttributes gameDetails={gameDetails} />
     </>
   );
 };
 
-export default GameDetailPage;
+export default GameDetailsPage;
