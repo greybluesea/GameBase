@@ -67,6 +67,7 @@ const GameDetailsPage = () => {
           />
 
           <GameAttributes gameDetails={gameDetails} />
+          <GameTrailers id={gameDetails.id} />
         </div>
         <VStack spacing={4} alignItems={"start"}>
           <div
@@ -76,8 +77,6 @@ const GameDetailsPage = () => {
             alignItems: "start", */
             }}
           >
-            <GameTrailers id={gameDetails.id} />
-
             <GameScreenshots slug={slug!} />
           </div>
         </VStack>{" "}
