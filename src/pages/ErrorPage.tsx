@@ -1,5 +1,5 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
-import { isRouteErrorResponse, useRouteError } from "react-router-dom";
+import { Link, isRouteErrorResponse, useRouteError } from "react-router-dom";
 import NavBar from "../components/NavBar";
 
 const ErrorPage = () => {
@@ -15,6 +15,7 @@ const ErrorPage = () => {
             ? "This Page does not exit. Please check the address/URL."
             : " Unexpected Error!"}
         </Text>
+        <Link to="/">Back to homepage</Link>
       </Box>
     </>
   );

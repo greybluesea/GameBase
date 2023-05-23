@@ -1,5 +1,5 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
-import { isRouteErrorResponse, useRouteError } from "react-router-dom";
+import { Link, isRouteErrorResponse, useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {
   const pageError = useRouteError();
@@ -12,6 +12,7 @@ const ErrorPage = () => {
           ? "This game does not exit. Please check the search parameters."
           : " Unexpected Error!"}
       </Text>
+      <Link to="/">Back to homepage</Link>
     </Box>
   );
 };
