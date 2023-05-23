@@ -1,5 +1,6 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import useFetchGameScreenshots from "../../hooks/useFetchGameSreenshots";
+import SkeletonScreenshot from "./SkeletonScreenshot";
 
 interface Props {
   slug: string;
@@ -7,7 +8,7 @@ interface Props {
 
 const GameScreenshots = ({ slug }: Props) => {
   const { gameScreenshots, error, isLoading } = useFetchGameScreenshots(slug);
-  if (isLoading) return null;
+  if (isLoading) return <SkeletonScreenshot />;
   if (error) return null;
 
   return gameScreenshots ? (
