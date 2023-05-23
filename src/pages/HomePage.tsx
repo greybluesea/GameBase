@@ -4,7 +4,7 @@ import GenreList from "../components/GenreList";
 import NavBar from "../components/NavBar";
 import PlatformFilter from "../components/PlatformFilter";
 import GenreSelector from "../components/GenreSelector";
-import ResetBtn from "../components/ResetBtn";
+import ResetBtn from "../components/resetFiltersBtn";
 import SortSelector from "../components/SortSelector";
 import { Outlet } from "react-router-dom";
 

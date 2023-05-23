@@ -11,6 +11,7 @@ import {
 import getCroppedImageURL from "../utilities/CropImage";
 import useFetchGenres from "../hooks/useFetchGenres";
 import useQueryGameStore from "../store/store";
+import { Link } from "react-router-dom";
 
 const GenreList = () => {
   const { dataIncludingGenres, error, isLoading } = useFetchGenres();
@@ -42,19 +43,23 @@ const GenreList = () => {
                 objectFit={"cover"}
                 objectPosition={"center"}
               ></Image>
-              <Button
-                key={eachGenre.id}
-                fontWeight={eachGenre.id === genreQuery?.id ? "bold" : "normal"}
-                fontSize="lg"
-                marginTop={"16px"}
-                marginBottom={"0"}
-                variant={"ghost"}
-                whiteSpace={"normal"}
-                textAlign={"start"}
-                onClick={() => selectGenre(eachGenre)}
-              >
-                {eachGenre.name}
-              </Button>
+              <Box marginTop={"16px"} marginBottom={"0"}>
+                <Link to="/">
+                  <Button
+                    key={eachGenre.id}
+                    fontWeight={
+                      eachGenre.id === genreQuery?.id ? "bold" : "normal"
+                    }
+                    fontSize="lg"
+                    variant={"ghost"}
+                    whiteSpace={"normal"}
+                    textAlign={"start"}
+                    onClick={() => selectGenre(eachGenre)}
+                  >
+                    {eachGenre.name}
+                  </Button>
+                </Link>
+              </Box>
             </HStack>
           </ListItem>
         ))}

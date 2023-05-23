@@ -17,7 +17,7 @@ const GameDetailsPage = () => {
     };
 
     const filters = document.querySelectorAll(
-      ".css-r6z5ec, .css-fv5pzg, .css-wqpdoh, .css-m4y9sm, #ModalBrand"
+      " .css-wqpdoh, .css-m4y9sm, #ModalBrand"
     );
     if (filters) {
       filters.forEach((each) =>

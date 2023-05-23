@@ -2,6 +2,7 @@ import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import useFetchGenres from "../hooks/useFetchGenres";
 import useQueryGameStore from "../store/store";
+import { Link } from "react-router-dom";
 
 const GenreSelector = () => {
   const { dataIncludingGenres, error, isLoading } = useFetchGenres();
@@ -24,15 +25,16 @@ const GenreSelector = () => {
       </MenuButton>
       <MenuList>
         {dataIncludingGenres?.results.map((eachGenre) => (
-          <MenuItem
-            onClick={() => {
-              selectGenre(eachGenre);
-            }}
-            key={eachGenre.id}
-            value={eachGenre.slug}
-          >
-            {eachGenre.name}
-          </MenuItem>
+          <Link to="/" key={eachGenre.id}>
+            <MenuItem
+              onClick={() => {
+                selectGenre(eachGenre);
+              }}
+              value={eachGenre.slug}
+            >
+              {eachGenre.name}
+            </MenuItem>
+          </Link>
         ))}
       </MenuList>
     </Menu>

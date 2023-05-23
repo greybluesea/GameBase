@@ -2,47 +2,43 @@ import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import useFetchPlatforms from "../hooks/useFetchPlatforms";
 import { BsChevronDown } from "react-icons/bs";
 import useQueryGameStore from "../store/store";
+import { Link } from "react-router-dom";
 
-/* interface Props {
-  onSelectPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
-}
- */
-const PlatformFilter =
-  (/* { onSelectPlatform, selectedPlatform }: Props */) => {
-    const { dataIncludingPlatforms, error, isLoading } = useFetchPlatforms();
+const PlatformFilter = () => {
+  const { dataIncludingPlatforms, error, isLoading } = useFetchPlatforms();
 
-    const platformQuery = useQueryGameStore((state) => state.platformQuery);
-    const selectPlatform = useQueryGameStore((state) => state.selectPlatform);
+  const platformQuery = useQueryGameStore((state) => state.platformQuery);
+  const selectPlatform = useQueryGameStore((state) => state.selectPlatform);
 
-    /* console.log("PlatformFilter re-rendered"); */
+  /* console.log("PlatformFilter re-rendered"); */
 
-    if (error) return null;
+  if (error) return null;
 
-    return (
-      <Menu>
-        <MenuButton
-          width={"220px"}
-          as={Button}
-          rightIcon={<BsChevronDown />}
-          textAlign={"start"}
-        >
-          {/*  {selectedPlatform?.name ? selectedPlatform.name : "Filter by Platform"} */}
-          {platformQuery?.name || "Filter by Platform"}
-        </MenuButton>
-        <MenuList>
-          {dataIncludingPlatforms?.results.map((eachPlatform) => (
+  return (
+    <Menu>
+      <MenuButton
+        width={"220px"}
+        as={Button}
+        rightIcon={<BsChevronDown />}
+        textAlign={"start"}
+      >
+        {/*  {selectedPlatform?.name ? selectedPlatform.name : "Filter by Platform"} */}
+        {platformQuery?.name || "Filter by Platform"}
+      </MenuButton>
+      <MenuList>
+        {dataIncludingPlatforms?.results.map((eachPlatform) => (
+          <Link to="/" key={eachPlatform.id}>
             <MenuItem
               onClick={() => selectPlatform(eachPlatform)}
-              key={eachPlatform.id}
               value={eachPlatform.slug}
             >
               {eachPlatform.name}
             </MenuItem>
-          ))}
-        </MenuList>
-      </Menu>
-    );
-  };
+          </Link>
+        ))}
+      </MenuList>
+    </Menu>
+  );
+};
 
 export default PlatformFilter;

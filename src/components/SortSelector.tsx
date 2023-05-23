@@ -1,5 +1,5 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
-
+import { Link } from "react-router-dom";
 import { BsChevronDown } from "react-icons/bs";
 import useQueryGameStore from "../store/store";
 
@@ -36,15 +36,16 @@ const SortSelector = () => {
       </MenuButton>
       <MenuList>
         {sortArray.map((eachSort) => (
-          <MenuItem
-            onClick={() => {
-              selectSort(eachSort);
-            }}
-            key={eachSort.value}
-            value={eachSort.value}
-          >
-            {eachSort.name}
-          </MenuItem>
+          <Link to="/" key={eachSort.value}>
+            <MenuItem
+              onClick={() => {
+                selectSort(eachSort);
+              }}
+              value={eachSort.value}
+            >
+              {eachSort.name}
+            </MenuItem>
+          </Link>
         ))}
       </MenuList>
     </Menu>
