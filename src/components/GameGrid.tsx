@@ -7,11 +7,7 @@ import LoadMoreBtn from "./LoadMoreBtn";
 import SkeletonCard from "./SkeletonCard";
 import ErrorGamePage from "../pages/ErrorGamePage";
 
-/* interface Props {
-  queryGame: QueryGame;
-}
- */
-const GameGrid = (/* { queryGame }: Props */) => {
+const GameGrid = () => {
   const {
     dataIncludingGames,
     error,
@@ -21,7 +17,7 @@ const GameGrid = (/* { queryGame }: Props */) => {
     hasNextPage,
   } = useFetchGames();
   const skeletonArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  if (error) return /* <Text>{error.message}</Text> */ <ErrorGamePage />;
+  if (error) return <ErrorGamePage />;
 
   const totalFetchedGames = dataIncludingGames?.pages.reduce(
     (total, page) => page.results.length + total,
@@ -50,33 +46,24 @@ const GameGrid = (/* { queryGame }: Props */) => {
           {isLoading
             ? skeletonArray.map((each) => (
                 <GameCardContainer key={each}>
-                  {" "}
-                  <SkeletonCard /* key={each} */ />
+                  <SkeletonCard />
                 </GameCardContainer>
               ))
             : dataIncludingGames?.pages.map((page) =>
                 page.results.map((each) => (
                   <GameCardContainer key={each.id}>
-                    {" "}
-                    <GameCard /* key={each.id} */ game={each}></GameCard>
+                    <GameCard game={each}></GameCard>
                   </GameCardContainer>
                 ))
               )}
           {isFetchingNextPage &&
             skeletonArray.map((each) => (
               <GameCardContainer key={each}>
-                {" "}
-                <SkeletonCard /* key={each} */ />
+                <SkeletonCard />
               </GameCardContainer>
             ))}
         </SimpleGrid>
       </InfiniteScroll>
-      {/* {hasNextPage && (
-        <LoadMoreBtn
-          isFetchingNextPage={isFetchingNextPage}
-          fetchNextPage={fetchNextPage}
-        />
-      )} */}
     </>
   );
 };

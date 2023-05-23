@@ -31,6 +31,12 @@ const GameDetailsPage = () => {
     }
 
     return () => {
+      if (filters) {
+        filters.forEach((each) =>
+          each.removeEventListener("click", handleClickFilterItem)
+        );
+      }
+
       if (searchInput) {
         searchInput.removeEventListener("change", handleClickFilterItem);
       }

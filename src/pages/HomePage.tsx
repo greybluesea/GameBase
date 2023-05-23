@@ -30,33 +30,29 @@ const HomePage = () => {
           </GridItem>
         </Show>
         <GridItem area={"main"}>
-          <div id="filtersWrapper">
-            <HStack spacing={5} paddingStart={2} marginTop={3}>
-              <Box>
-                <PlatformFilter />
-              </Box>
-              <Box>
-                <SortSelector />
-              </Box>
-              <Show above="lg">
-                <div id="resetFiltersBtn">
-                  <ResetBtn />
-                </div>
-              </Show>
-            </HStack>
-            <Show below="lg">
-              <HStack spacing={5} paddingStart={2} marginTop={2}>
-                <Box>
-                  <GenreSelector />
-                </Box>
+          <HStack spacing={5} paddingStart={2} marginTop={3}>
+            <Box>
+              <PlatformFilter />
+            </Box>
+            <Box>
+              <SortSelector />
+            </Box>
+            <Show above="lg">
+              <div id="resetFiltersBtn">
                 <ResetBtn />
-              </HStack>
+              </div>
             </Show>
-          </div>
+          </HStack>
+          <Show below="lg">
+            <HStack spacing={5} paddingStart={2} marginTop={2}>
+              <Box>
+                <GenreSelector />
+              </Box>
+              <ResetBtn />
+            </HStack>
+          </Show>
           <Box marginTop={2} padding={2}>
-            <div /* style={{ display: "flex", justifyContent: "center" }} */>
-              <Outlet />
-            </div>
+            <Outlet />
           </Box>
         </GridItem>
       </Grid>

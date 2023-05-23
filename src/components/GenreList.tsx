@@ -51,9 +51,7 @@ const GenreList = () => {
                 variant={"ghost"}
                 whiteSpace={"normal"}
                 textAlign={"start"}
-                onClick={() => {
-                  selectGenre(eachGenre);
-                }}
+                onClick={() => selectGenre(eachGenre)}
               >
                 {eachGenre.name}
               </Button>
