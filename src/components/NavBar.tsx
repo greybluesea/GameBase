@@ -31,7 +31,7 @@ const NavBar = () => {
           boxSize="60px"
           cursor={"pointer"}
           objectFit={"cover"}
-          style={{ overflow: "visible !important" }}
+          style={{ overflow: "visible" }}
           onClick={() => {
             resetAllFilters();
             clearSearchInput();
