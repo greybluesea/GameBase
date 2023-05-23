@@ -34,7 +34,7 @@ const GameDetailsPage = () => {
   if (isLoading) return <Spinner size={"lg"} />;
   if (error || !gameDetails) return <ErrorGamePage />;
 
-  console.log("GameDetailPage re-rendered");
+  /* console.log("GameDetailPage re-rendered"); */
 
   return (
     <>
