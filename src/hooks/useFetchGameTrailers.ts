@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import GameTrailer from "../entities/GameTrailer";
-import AXIOSClient, { DataFromFetch } from "../services/AXIOSClient";
+import AXIOSClient, { DataFromFetch } from "../APIservices/AXIOSClient";
 
 const useFetchGameTrailers = (id: number | string) => {
   const axiosClientForGamesTrailers = new AXIOSClient<GameTrailer>(

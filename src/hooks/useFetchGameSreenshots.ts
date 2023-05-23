@@ -1,8 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import GameTrailer from "../entities/GameTrailer";
 
-import AXIOSClient, { DataFromFetch } from "../services/AXIOSClient";
+import AXIOSClient, { DataFromFetch } from "../APIservices/AXIOSClient";
 import GameScreenshot from "../entities/GameScreenshot";
 
 const useFetchGameScreenshots = (id: number | string) => {
@@ -15,7 +14,7 @@ const useFetchGameScreenshots = (id: number | string) => {
     error,
     isLoading,
   } = useQuery<DataFromFetch<GameScreenshot>, AxiosError>({
-    queryKey: ["games", id, "movies"],
+    queryKey: ["games", id, "screenshots"],
     queryFn: () => axiosClientForGameScreenshots.get(),
     staleTime: 24 * 60 * 60 * 1000,
     cacheTime: 24 * 60 * 60 * 1000,

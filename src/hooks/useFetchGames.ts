@@ -1,8 +1,8 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { Game } from "../entities/Game";
-import { DataFromFetch } from "../services/AXIOSClient";
-import axiosClientForGames from "../services/axiosClientForGames";
+import { DataFromFetch } from "../APIservices/AXIOSClient";
+import axiosClientForGames from "../APIservices/axiosClientForGames";
 import useQueryGameStore from "../store/store";
 
 const useFetchGames = () => {

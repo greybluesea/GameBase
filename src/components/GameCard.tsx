@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList";
 import ScoreBadge from "./ScoreBadge";
-import getCroppedImageURL from "../hooks/CropImage";
+import getCroppedImageURL from "../utilities/CropImage";
 import Emoji from "./Emoji";
 import { Game } from "../entities/Game";
 import { Link } from "react-router-dom";

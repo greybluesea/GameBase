@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import axiosClientForGenres from "../services/axiosClientForGenres";
+import axiosClientForGenres from "../APIservices/axiosClientForGenres";
 import { Genre } from "../entities/Genre";
-import { DataFromFetch } from "../services/AXIOSClient";
+import { DataFromFetch } from "../APIservices/AXIOSClient";
 import initialGenres from "../data/initialGenres";
 
 const useFetchGenres = () => {

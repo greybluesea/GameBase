@@ -54,7 +54,9 @@ const HomePage = () => {
             </Show>
           </div>
           <Box marginTop={2} padding={2}>
-            <Outlet />
+            <div /* style={{ display: "flex", justifyContent: "center" }} */>
+              <Outlet />
+            </div>
           </Box>
         </GridItem>
       </Grid>

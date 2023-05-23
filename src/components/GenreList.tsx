@@ -8,7 +8,7 @@ import {
   Spinner,
   VStack,
 } from "@chakra-ui/react";
-import getCroppedImageURL from "../hooks/CropImage";
+import getCroppedImageURL from "../utilities/CropImage";
 import useFetchGenres from "../hooks/useFetchGenres";
 import useQueryGameStore from "../store/store";
 

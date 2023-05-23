@@ -1,4 +1,11 @@
-import { Heading, SimpleGrid, Spinner, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  SimpleGrid,
+  Spinner,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ExpandableText from "../components/GameDetailsPage/ExpandableText";
@@ -48,18 +55,34 @@ const GameDetailsPage = () => {
   /* console.log("GameDetailPage re-rendered"); */
 
   return (
-    <div style={{ maxWidth: "768px" }}>
-      <Heading>{gameDetails.name}</Heading>
-      <ExpandableText
-        description_raw={gameDetails.description_raw}
-        description={gameDetails.description}
-      />
-      <GameAttributes gameDetails={gameDetails} />
-      <VStack spacing={4}>
-        <GameTrailers id={gameDetails.id} />
-        <GameScreenshots slug={slug!} />
-      </VStack>
-    </div>
+    <>
+      {" "}
+      <SimpleGrid columns={{ base: 1, lg: 2 }}>
+        <div style={{ maxWidth: "768px" }}>
+          <Heading /* textAlign={"center"} */>{gameDetails.name}</Heading>
+
+          <ExpandableText
+            description_raw={gameDetails.description_raw}
+            description={gameDetails.description}
+          />
+
+          <GameAttributes gameDetails={gameDetails} />
+        </div>
+        <VStack spacing={4} alignItems={"start"}>
+          <div
+            style={{
+              maxWidth: "768px",
+              /* display: "flex",
+            alignItems: "start", */
+            }}
+          >
+            <GameTrailers id={gameDetails.id} />
+
+            <GameScreenshots slug={slug!} />
+          </div>
+        </VStack>{" "}
+      </SimpleGrid>
+    </>
   );
 };
 

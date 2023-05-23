@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { GameDetails } from "../entities/GameDetals";
-import axiosClientForGameDetails from "../services/axiosClientForGameDetails";
+import axiosClientForGameDetails from "../APIservices/axiosClientForGameDetails";
 
 const useFetchGameDetails = (id: number | string) => {
   const {
