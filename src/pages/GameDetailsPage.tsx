@@ -46,7 +46,7 @@ const GameDetailsPage = () => {
   if (isLoading)
     return (
       <>
-        <SimpleGrid columns={{ base: 1, lg: 2 }} marginTop={3}>
+        <SimpleGrid columns={{ base: 1, lg: 2 }} marginTop={3} spacing={3}>
           <div style={{ maxWidth: "768px" }}>
             <Skeleton>
               <Heading>skeleton</Heading>
@@ -101,7 +101,7 @@ const GameDetailsPage = () => {
   if (error || !gameDetails) return <ErrorGamePage />;
   return (
     <>
-      <SimpleGrid columns={{ base: 1, lg: 2 }}>
+      <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={3}>
         <div style={{ maxWidth: "768px" }}>
           <Heading>
             <Link
