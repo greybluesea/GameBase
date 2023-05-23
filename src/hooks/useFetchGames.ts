@@ -1,10 +1,9 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import useQueryGameStore from "../store/store";
+import { Game } from "../entities/Game";
 import { DataFromFetch } from "../services/AXIOSClient";
 import axiosClientForGames from "../services/axiosClientForGames";
-import { Game } from "../entities/Game";
-import { useNavigate } from "react-router-dom";
+import useQueryGameStore from "../store/store";
 
 const useFetchGames = () => {
   const genreQuery = useQueryGameStore((state) => state.genreQuery);

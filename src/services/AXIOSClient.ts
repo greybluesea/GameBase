@@ -21,7 +21,7 @@ export default class AXIOSClient<T> {
     this.endpoint = endpoint;
   }
 
-  get = (requestConfig: AxiosRequestConfig) => {
+  get = (requestConfig?: AxiosRequestConfig) => {
     return instanceOfAxios
       .get<DataFromFetch<T>>(this.endpoint, requestConfig)
       .then((res) => res.data);

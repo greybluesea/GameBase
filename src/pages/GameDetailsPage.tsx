@@ -7,6 +7,7 @@ import ScoreBadge from "../components/ScoreBadge";
 import useFetchGameDetails from "../hooks/useFetchGameDetails";
 import ErrorGamePage from "./ErrorGamePage";
 import GameAttributes from "../components/GameAttributes";
+import GameTrailers from "../components/GameDetailsPage/GameTrailers";
 
 const GameDetailsPage = () => {
   const navigate = useNavigate();
@@ -53,6 +54,7 @@ const GameDetailsPage = () => {
         description={gameDetails.description}
       />
       <GameAttributes gameDetails={gameDetails} />
+      <GameTrailers id={gameDetails.id} />
     </>
   );
 };
