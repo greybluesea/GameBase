@@ -22,7 +22,7 @@ const ModalBrand = () => {
             <Heading
               as="h4"
               size="md"
-              style={{ marginRight: "32px", color: "inherit" }}
+              style={{ marginRight: "35px", color: "inherit" }}
               cursor={"pointer"}
               paddingTop={2.5}
             >

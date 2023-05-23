@@ -14,18 +14,24 @@ const NavBar = () => {
   return (
     <HStack
       justifyContent={"space-evenly"}
-      padding="10px"
-      paddingEnd={{
-        base: "",
-        lg: "3",
+      paddingY="10px"
+      paddingX={{
+        base: "10px",
+        lg: "20px",
       }}
     >
-      <Link to="/" style={{ marginLeft: "15px", marginRight: "10px" }}>
+      <Link
+        to="/"
+        style={{
+          marginRight: "8px",
+        }}
+      >
         <Image
           src={logo}
           boxSize="60px"
           cursor={"pointer"}
           objectFit={"cover"}
+          style={{ overflow: "visible" }}
           onClick={() => {
             resetAllFilters();
             clearSearchInput();
