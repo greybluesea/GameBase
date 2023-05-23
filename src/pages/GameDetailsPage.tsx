@@ -1,4 +1,4 @@
-import { Heading, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import { Heading, SimpleGrid, Spinner, Text, VStack } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ExpandableText from "../components/GameDetailsPage/ExpandableText";
@@ -8,6 +8,7 @@ import useFetchGameDetails from "../hooks/useFetchGameDetails";
 import ErrorGamePage from "./ErrorGamePage";
 import GameAttributes from "../components/GameAttributes";
 import GameTrailers from "../components/GameDetailsPage/GameTrailers";
+import GameScreenshots from "../components/GameDetailsPage/GameScreenshots";
 
 const GameDetailsPage = () => {
   const navigate = useNavigate();
@@ -47,15 +48,18 @@ const GameDetailsPage = () => {
   /* console.log("GameDetailPage re-rendered"); */
 
   return (
-    <>
+    <div style={{ maxWidth: "768px" }}>
       <Heading>{gameDetails.name}</Heading>
       <ExpandableText
         description_raw={gameDetails.description_raw}
         description={gameDetails.description}
       />
       <GameAttributes gameDetails={gameDetails} />
-      <GameTrailers id={gameDetails.id} />
-    </>
+      <VStack spacing={4}>
+        <GameTrailers id={gameDetails.id} />
+        <GameScreenshots slug={slug!} />
+      </VStack>
+    </div>
   );
 };
 

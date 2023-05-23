@@ -1,4 +1,4 @@
-import useFetchGameTrailers from "../../hooks/unused/useFetchGameTrailers";
+import useFetchGameTrailers from "../../hooks/useFetchGameTrailers";
 
 interface Props {
   id: number;

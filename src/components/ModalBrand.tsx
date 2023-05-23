@@ -37,7 +37,9 @@ const ModalBrand = () => {
             <react.ModalCloseButton />
             <react.ModalBody>
               <react.List>
-                <react.ListItem>API provided by RAWG.io</react.ListItem>
+                <react.ListItem>
+                  API from RAWG.io (no trailer for most games)
+                </react.ListItem>
                 <react.ListItem>ReactQuery + Zustand</react.ListItem>
                 <react.ListItem>
                   Git + GitHub + deployed on Vercel
