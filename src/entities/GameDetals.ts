@@ -9,6 +9,7 @@ export interface GameDetails {
   background_image: string;
   description_raw: string;
   description: string;
+  website: string;
   publishers: Publisher[];
   genres: Genre[];
   parent_platforms: { platform: Platform }[];

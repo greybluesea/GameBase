@@ -1,21 +1,12 @@
-import {
-  Box,
-  Heading,
-  SimpleGrid,
-  Spinner,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Heading, SimpleGrid, Spinner, VStack } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import GameAttributes from "../components/GameAttributes";
 import ExpandableText from "../components/GameDetailsPage/ExpandableText";
-import GameAttributeItem from "../components/GameDetailsPage/GameAttributeItem";
-import ScoreBadge from "../components/ScoreBadge";
+import GameScreenshots from "../components/GameDetailsPage/GameScreenshots";
+import GameTrailers from "../components/GameDetailsPage/GameTrailers";
 import useFetchGameDetails from "../hooks/useFetchGameDetails";
 import ErrorGamePage from "./ErrorGamePage";
-import GameAttributes from "../components/GameAttributes";
-import GameTrailers from "../components/GameDetailsPage/GameTrailers";
-import GameScreenshots from "../components/GameDetailsPage/GameScreenshots";
 
 const GameDetailsPage = () => {
   const navigate = useNavigate();
@@ -59,7 +50,15 @@ const GameDetailsPage = () => {
       {" "}
       <SimpleGrid columns={{ base: 1, lg: 2 }}>
         <div style={{ maxWidth: "768px" }}>
-          <Heading /* textAlign={"center"} */>{gameDetails.name}</Heading>
+          <Heading>
+            <a
+              href={gameDetails.website}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {gameDetails.name}
+            </a>
+          </Heading>
 
           <ExpandableText
             description_raw={gameDetails.description_raw}
