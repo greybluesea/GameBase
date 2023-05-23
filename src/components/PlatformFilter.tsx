@@ -27,7 +27,7 @@ const PlatformFilter = () => {
       </MenuButton>
       <MenuList>
         {dataIncludingPlatforms?.results.map((eachPlatform) => (
-          <Link to="/" key={eachPlatform.id}>
+          <Link to="/" key={eachPlatform.id} style={{ color: "inherit" }}>
             <MenuItem
               onClick={() => selectPlatform(eachPlatform)}
               value={eachPlatform.slug}

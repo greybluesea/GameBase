@@ -6,15 +6,17 @@ import { Link } from "react-router-dom";
 const ResetBtn = () => {
   const resetAllFilters = useQueryGameStore((state) => state.resetAllFilters);
   return (
-    <Button
-      id="resetFiltersBtn"
-      onClick={() => {
-        resetAllFilters();
-        clearSearchInput();
-      }}
-    >
-      Reset all filters
-    </Button>
+    <Link to="/" style={{ color: "inherit" }}>
+      <Button
+        id="resetFiltersBtn"
+        onClick={() => {
+          resetAllFilters();
+          clearSearchInput();
+        }}
+      >
+        Reset all filters
+      </Button>
+    </Link>
   );
 };
 

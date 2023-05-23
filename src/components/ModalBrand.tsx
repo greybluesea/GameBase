@@ -2,6 +2,7 @@ import * as react from "@chakra-ui/react";
 import { Heading, Show } from "@chakra-ui/react";
 import useQueryGameStore from "../store/store";
 import clearSearchInput from "../utilities/clearSearchInput";
+import { Link } from "react-router-dom";
 
 const ModalBrand = () => {
   const resetAllFilters = useQueryGameStore((state) => state.resetAllFilters);
@@ -9,24 +10,26 @@ const ModalBrand = () => {
   return (
     <>
       <Show above="md">
-        <div
-          onClick={() => {
-            onOpen();
-            resetAllFilters();
-            clearSearchInput();
-          }}
-          id="ModalBrand"
-        >
-          <Heading
-            as="h4"
-            size="md"
-            style={{ marginRight: "45px" }}
-            cursor={"pointer"}
-            paddingTop={2.5}
+        <Link to="/" style={{ color: "inherit" }}>
+          <div
+            onClick={() => {
+              onOpen();
+              resetAllFilters();
+              clearSearchInput();
+            }}
+            id="ModalBrand"
           >
-            GameBase
-          </Heading>
-        </div>
+            <Heading
+              as="h4"
+              size="md"
+              style={{ marginRight: "32px", color: "inherit" }}
+              cursor={"pointer"}
+              paddingTop={2.5}
+            >
+              GameBase
+            </Heading>
+          </div>
+        </Link>
 
         <react.Modal isOpen={isOpen} onClose={onClose} isCentered>
           <react.ModalOverlay />

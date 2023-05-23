@@ -1,4 +1,4 @@
-import { Heading, SimpleGrid, Spinner, VStack } from "@chakra-ui/react";
+import { Heading, Link, SimpleGrid, Spinner, VStack } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import GameAttributes from "../components/GameAttributes";
@@ -12,33 +12,18 @@ const GameDetailsPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handleClickFilterItem = () => {
+    const handleSearch = () => {
       navigate("/");
     };
 
-    const filters = document.querySelectorAll(
-      " .css-wqpdoh, .css-m4y9sm, #ModalBrand"
-    );
-    if (filters) {
-      filters.forEach((each) =>
-        each.addEventListener("click", handleClickFilterItem)
-      );
-    }
-
     const searchInput = document.querySelector("#searchInput");
     if (searchInput) {
-      searchInput.addEventListener("change", handleClickFilterItem);
+      searchInput.addEventListener("change", handleSearch);
     }
 
     return () => {
-      if (filters) {
-        filters.forEach((each) =>
-          each.removeEventListener("click", handleClickFilterItem)
-        );
-      }
-
       if (searchInput) {
-        searchInput.removeEventListener("change", handleClickFilterItem);
+        searchInput.removeEventListener("change", handleSearch);
       }
     };
   }, []);
@@ -49,7 +34,7 @@ const GameDetailsPage = () => {
   if (isLoading) return <Spinner size={"lg"} />;
   if (error || !gameDetails) return <ErrorGamePage />;
 
-  /* console.log("GameDetailPage re-rendered"); */
+  console.log("GameDetailPage re-rendered");
 
   return (
     <>
@@ -57,13 +42,14 @@ const GameDetailsPage = () => {
       <SimpleGrid columns={{ base: 1, lg: 2 }}>
         <div style={{ maxWidth: "768px" }}>
           <Heading>
-            <a
+            <Link
+              _hover={{ textDecoration: "none", color: "inherit" }}
               href={gameDetails.website}
               target="_blank"
               rel="noopener noreferrer"
             >
               {gameDetails.name}
-            </a>
+            </Link>
           </Heading>
 
           <ExpandableText

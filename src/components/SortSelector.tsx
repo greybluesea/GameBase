@@ -36,7 +36,7 @@ const SortSelector = () => {
       </MenuButton>
       <MenuList>
         {sortArray.map((eachSort) => (
-          <Link to="/" key={eachSort.value}>
+          <Link to="/" key={eachSort.value} style={{ color: "inherit" }}>
             <MenuItem
               onClick={() => {
                 selectSort(eachSort);

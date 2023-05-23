@@ -6,6 +6,7 @@ import logo from "../assets/GameHubResources/Logo/logo.webp";
 import ModalBrand from "./ModalBrand";
 import useQueryGameStore from "../store/store";
 import clearSearchInput from "../utilities/clearSearchInput";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const resetAllFilters = useQueryGameStore((state) => state.resetAllFilters);
@@ -19,15 +20,18 @@ const NavBar = () => {
         lg: "3",
       }}
     >
-      <Image
-        src={logo}
-        boxSize="60px"
-        cursor={"pointer"}
-        onClick={() => {
-          resetAllFilters();
-          clearSearchInput();
-        }}
-      />
+      <Link to="/" style={{ marginLeft: "15px", marginRight: "10px" }}>
+        <Image
+          src={logo}
+          boxSize="60px"
+          cursor={"pointer"}
+          objectFit={"cover"}
+          onClick={() => {
+            resetAllFilters();
+            clearSearchInput();
+          }}
+        />
+      </Link>
       <ModalBrand />
 
       <SearchInput />
