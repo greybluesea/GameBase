@@ -43,7 +43,9 @@ const ModalBrand = () => {
                 <react.ListItem>
                   API from RAWG.io (no trailer for most games)
                 </react.ListItem>
-                <react.ListItem>ReactQuery + Zustand</react.ListItem>
+                <react.ListItem>
+                  ReactQuery + Zustand + ReactRouter
+                </react.ListItem>
                 <react.ListItem>
                   Git + GitHub + deployed on Vercel
                 </react.ListItem>
