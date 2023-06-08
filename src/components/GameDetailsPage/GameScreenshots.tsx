@@ -18,7 +18,8 @@ const GameScreenshots = ({ slug }: Props) => {
           key={each.id}
           src={each.image}
           className="d-block w-100"
-          alt={"image-" + each.id + " for " + slug}
+          alt={"image-" + each.id + "-for-" + slug}
+          loading={"lazy"}
         />
       ))}
     </SimpleGrid>
