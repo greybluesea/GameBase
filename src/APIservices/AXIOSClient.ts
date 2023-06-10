@@ -7,14 +7,10 @@ export interface DataFromFetch<T> {
   results: T[];
 }
 
-const apiKey = import.meta.env.DEV
-  ? import.meta.env.VITE_API_KEY
-  : process.env.API_KEY;
-
 const instanceOfAxios = axios.create({
   baseURL: "https://api.rawg.io/api",
   params: {
-    key: "6dfec956e48b4b14960840e09578d4c5" /* apiKey */,
+    key: "6dfec956e48b4b14960840e09578d4c5",
   },
 });
 
